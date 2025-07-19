@@ -1189,7 +1189,11 @@ async function createWasm() {
         if (typeof window != 'undefined' &&
           typeof window.prompt == 'function') {
           // Browser.
-          result = window.prompt('Input: ');  // returns null on cancel
+          if(!scanflag) result = window.prompt('Input: '); 
+             scanflag++;
+              // returns null on cancel
+          //result = window.prompt('Input: '); 
+          // returns null on cancel
           if (result !== null) {
             result += '\n';
           }
