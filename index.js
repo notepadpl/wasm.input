@@ -1249,7 +1249,8 @@ async function createWasm() {
   fsync(stream) {
           stream.tty.ops.fsync(stream.tty);
         },
-  read(stream, buffer, offset, length, pos /* ignored */) {
+  read(stream, buffer, offset, length, pos /* ignored */) { 
+    scanflag=0;
           if (!stream.tty || !stream.tty.ops.get_char) {
             throw new FS.ErrnoError(60);
           }
